@@ -1,16 +1,21 @@
-<div class="row">
-    <div class="col-xs-10">
+<div class="row" style="max-width: 950px;">
+    <div class="col-xs-10" >
         <app-shopping-edit></app-shopping-edit>
 
         <hr>
         <ul class="list-group">
-             <a class="list-group-item" style="cursor: pointer" *ngFor=" let ingredient of ingredients; let i = index" [id]="i" (click)="onEditItem(i)" [@listState]="normalState" >
+             <a class="list-group-item" style="cursor: pointer" *ngFor=" let ingredient of ingredients; let i = index" [id]="i" (click)="onEditItem(i)" [@listState]="normalState" style="max-width:350px">
                 {{ingredient.name}} ({{ingredient.amount}})
                 <button class="btn btn-success"  (click)="onClear()" >Clear</button>
             </a>
 
         </ul>
-       <button class="btn btn-success" *ngIf="ingredients.length" type="button" (click)="onBuyArticles()">Confirm Articles !</button>
+       <button class="btn btn-success" *ngIf="ingredients.length" type="button" (click)="onConfirmArticles()">Confirm Articles !</button>
+       <hr>
+
+    </div>
+    <div>
+      <router-outlet ></router-outlet>
 
     </div>
 
