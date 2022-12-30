@@ -1,0 +1,20 @@
+input.ng-invalid.ng-touched{
+    border-color: red;
+}
+input.ng-valid{
+    border-color: green;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+.head{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+.buttonDiv{
+    display: flex;
+    justify-content: center;
+}

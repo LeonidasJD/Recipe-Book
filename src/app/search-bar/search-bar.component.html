@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSearch()" #f="ngForm"  >
+    <label for="search"></label>
+    <input
+    id="search"
+    name="search"
+    type="text"
+    placeholder="Search Recipe..."
+    ngModel
+    #search
+    />
+    <button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="search icon" style="max-width: 15px; max-height: 15px;"></button>
+  </form>

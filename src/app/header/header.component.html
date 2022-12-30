@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a  class="navbar-brand" >Recipe Book <small>by Milan</small></a>
+        </div>
+        <div class="navbar-default">
+            <ul class="nav navbar-nav">
+                <li routerLinkActive = "active" *ngIf="isAuthenticated"><a routerLink="/recipes" (click)="showRecipes()">Recipes</a></li>
+                <li routerLinkActive = "active" *ngIf="isAuthenticated"><a routerLink="/shopping-list">Shopping list</a></li>
+                <li routerLinkActive = "active" *ngIf="!isAuthenticated"><a routerLink="/auth">LogIn/SignUp</a></li>
+                <li><a style="cursor:pointer" *ngIf="isAuthenticated" (click)="saveAllChanges()">Save All Changes</a></li>
+                
+                
+                
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="isAuthenticated">
+                    <div style="margin-top: 12px ;">
+                        <app-search-bar></app-search-bar>
+                    </div>
+                </li>
+                <li *ngIf="isAuthenticated">
+                    <a  style="cursor:pointer" (click)="onLogOut()" *ngIf="isAuthenticated">Logout</a>
+                </li>
+                <li  class="dropdown " appDropdownDeclaration *ngIf="isAuthenticated">
+                    
+                    <a  class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><a style="cursor:pointer" (click)="onSaveAtDataBase()">Save Recipe</a></li>
+                        <li><a style="cursor:pointer"(click)="onFetchData()">Show recipes </a></li>
+                    </ul>
+                </li>
+                
+                
+            </ul>
+            
+        </div>
+    </div>
+</nav>
