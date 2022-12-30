@@ -49,7 +49,7 @@ children:[{path:'new', component:RecipesEditComponent},
           {path:':id/edit',component:RecipesEditComponent},
           ]},
 
-{path: 'shopping-list', component:ShoppingListComponent, canActivate:[AuthGuard], },
+{path: 'shopping-list', component:ShoppingListComponent, canActivate:[AuthGuard],children:[{path:'confirmArticles',component:ShoppingConfirmComponent}]},
 {path: 'recipes/:id/shopping-list', component:ShoppingListComponent},
 {path:'auth',component:AuthComponent},
 {path:'forgot-password',component:ForgotPasswordComponent}
