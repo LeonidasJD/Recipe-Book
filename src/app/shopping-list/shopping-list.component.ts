@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Ingredient } from '../shared/ingredient-model';
 import { ShoppingServiceService } from './shopping-service.service';
 
@@ -20,24 +21,33 @@ export class ShoppingListComponent implements OnInit {
 
   ingredients: Ingredient[] = [];
   @Input() id:number;
-  
 
-  constructor(private shoppingService:ShoppingServiceService) {
-  
+
+
+
+  constructor(private shoppingService:ShoppingServiceService,private router:Router,private route:ActivatedRoute) {
+
   }
 
   onClear(){
+
     this.shoppingService.clearIngredient(this.id);
   };
 
 
   ngOnInit(){
     this.ingredients = this.shoppingService.getIngredients();
-    
+    this.router.navigate(['shopping-list'])
+
   }
 
  onEditItem(index:number){
   this.shoppingService.startedEditing.next(index);
  }
 
+ onConfirmArticles(){
+this.router.navigate(['confirmArticles'],{relativeTo:this.route});
+
+
+}
 }
