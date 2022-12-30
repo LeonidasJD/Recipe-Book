@@ -67,7 +67,7 @@ children:[{path:'new', component:RecipesEditComponent},
     HeaderComponent,
     FooterComponent,
     SearchBarComponent,
-    ShoppingConfirmComponent,
+
 
 
 
