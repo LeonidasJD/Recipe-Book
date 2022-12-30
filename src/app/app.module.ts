@@ -31,7 +31,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FilterPipe } from './filter.pipe';
-import { ShoppingConfirmComponent } from './shopping-confirm/shopping-confirm.component';
+import { ShoppingConfirmComponent } from './shopping-list/shopping-confirm/shopping-confirm.component';
 
 
 
