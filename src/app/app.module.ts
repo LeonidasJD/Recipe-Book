@@ -30,7 +30,8 @@ import { AuthModule } from './auth/authModule';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { FilterPipe } from './filter.pipe'
+import { FilterPipe } from './filter.pipe';
+
 
 
 
@@ -65,10 +66,11 @@ children:[{path:'new', component:RecipesEditComponent},
     HeaderComponent,
     FooterComponent,
     SearchBarComponent,
-    
-    
-    
-    //RecipesComponent,    sve recipe komponente kao i welcome message komponenta  su prebacene u recipe module zbog optmizacije 
+    ShopingConfirmComponent,
+
+
+
+    //RecipesComponent,    sve recipe komponente kao i welcome message komponenta  su prebacene u recipe module zbog optmizacije
     //RecipeListComponent,
     //RecipeDetailComponent,
     //RecipeItemComponent,
@@ -79,12 +81,12 @@ children:[{path:'new', component:RecipesEditComponent},
     //AuthComponent,
     //LoadingSpinnerComponent,
    // AlertComponent,  //AuthComponent , LoadingSpinnerComponent i ForgotPasswordComponent su deo auth modula
-   // WelcomeMessageComponent, 
+   // WelcomeMessageComponent,
     //ForgotPasswordComponent,
-    
-    
-    
-    
+
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -96,11 +98,11 @@ children:[{path:'new', component:RecipesEditComponent},
     ShoppingListModule,//importovane sve komponente iz shoppingList.modul
     AuthModule, //importovane sve komponente iz AuthModule
     BrowserAnimationsModule,
-    
-    
-    
-    
-    
+
+
+
+
+
   ],
   providers: [ShoppingServiceService,RecipeServiceService,DataStorageService,AuthService,AuthComponent],
   bootstrap: [AppComponent]
