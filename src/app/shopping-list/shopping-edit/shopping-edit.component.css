@@ -5,3 +5,11 @@ input.ng-invalid.ng-touched{
 input.ng-valid{
     border-color: green;
 }
+
+@media screen and (max-width:400px) {
+  #buttons{
+    width: 222px;
+  }
+}
+
+
