@@ -3,15 +3,16 @@
         <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-xs-12">
-                    <button 
-                    type="submit" 
-                    class="btn btn-success" 
-                    style="margin-right: 10px; margin-bottom:20px" 
+                  <div class="line"></div>
+                    <button
+                    type="submit"
+                    class="btn btn-success"
+                    style="margin-right: 10px; margin-bottom:20px"
                     [disabled]="!recipeForm.valid">{{editMode ? 'Save Update' : 'Save New Recipe'}}</button>
-                    <button 
-                    type="button" 
-                    class="btn btn-danger"  
-                    style="margin-bottom:20px;" 
+                    <button
+                    type="button"
+                    class="btn btn-danger"
+                    style="margin-bottom:20px;"
                     (click)="onCancel()">Cancel
                 </button>
                 </div>
@@ -20,14 +21,14 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input 
-                        type="text" 
-                        id="name" 
+                        <input
+                        type="text"
+                        id="name"
                         class="form-control"
                         formControlName="name"
                         >
                         <span class="help-block" *ngIf="!recipeForm.get('name').valid && recipeForm.get('name').touched">This field is required !</span>
-                    
+
                     </div>
                 </div>
             </div>
@@ -35,9 +36,9 @@
                 <div class="col-xs-12">
                     <div class="form-group">
                         <label for="imagePath">Image URL</label>
-                        <input 
-                        type="text" 
-                        id="imagePath" 
+                        <input
+                        type="text"
+                        id="imagePath"
                         class="form-control"
                         formControlName="imagePath">
                         <span class="help-block" *ngIf="!recipeForm.get('imagePath').valid && recipeForm.get('imagePath').touched">This field is required !</span>
@@ -54,8 +55,8 @@
                     <div class="form-group">
                         <label for="description">Description</label>
                         <textarea
-                        type="text" 
-                        id="description" 
+                        type="text"
+                        id="description"
                         class="form-control"
                         rows="6"
                         formControlName="description">
@@ -66,29 +67,29 @@
             </div>
             <div class="row" >
                 <div class="col-xs-12" formArrayName="ingredients">
-                    <div class="row" *ngFor="let ingredientCtrl of getControls(); let i = index" [formGroupName]="i"> 
+                    <div class="row" *ngFor="let ingredientCtrl of getControls(); let i = index" [formGroupName]="i">
                         <div class="col-xs-8" >
                             <label for="ingredient">Ingredient name</label>
-                            <input 
-                            type="text" 
+                            <input
+                            type="text"
                             id="ingredient"
                             class="form-control"
                             formControlName="name">
-                            
+
                         </div>
                         <div class="col-xs-2">
                             <label for="amount">Amount</label>
-                            <input 
+                            <input
                             type="number"
                             id="amount"
                             class="form-control"
                             formControlName="amount">
-                            
+
                         </div>
                         <div class="col-xs-2">
-                            <button 
+                            <button
                             style="margin-top: 25px;"
-                            class="btn btn-danger" 
+                            class="btn btn-danger"
                             type="button"
                             (click)="onDeleteFormArray(i)">X
                             </button>
@@ -96,18 +97,17 @@
                         <span class="help-block" *ngIf="!recipeForm.get('ingredients').valid">Ingredient Name or Amount are incorrect!</span>
                     </div>
                     <hr>
-                    <div class="row">
+                    <div class="row" >
                         <div class="col-xs-12">
-                        <button 
+                        <button
                         class="btn btn-success"
+                        id="btnAdd"
                         type="button"
                         (click)="onAddFormArray()">Add Ingredient
                         </button>
-                        
-                        
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
         </form>
