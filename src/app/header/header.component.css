@@ -4,3 +4,10 @@ li{
 .navbar-header{
   font-family:'Rubik';
 }
+
+@media screen and (max-width: 414px) {
+  nav{
+    text-align: center;
+  }
+
+}
