@@ -1,0 +1,13 @@
+@media screen and (max-width: 991px) {
+  img{
+    margin-top: 30px;
+  }
+
+}
+#btnMenage{
+  margin-bottom: 10px;
+}
+
+#divDesc{
+  margin-bottom: 10px;
+}
