@@ -5,10 +5,18 @@ li{
   font-family:'Rubik';
 }
 
+
+
+#recipesList:hover,#shoppingList:hover,#saveChanges:hover,#logout:hover,#logsign:hover{
+  font-size: large;
+
+}
+
 @media screen  and (max-width:915px) and (min-width:768px){
   .navbar-default{
     display: inline-block;
     text-align: center;
+
   }
 
 }
