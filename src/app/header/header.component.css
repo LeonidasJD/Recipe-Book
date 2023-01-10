@@ -5,12 +5,20 @@ li{
   font-family:'Rubik';
 }
 
+@media screen  and (max-width:915px) and (min-width:768px){
+  .navbar-default{
+    display: inline-block;
+    text-align: center;
+  }
+
+}
 
 @media screen and (max-width: 767px) {
   nav{
     text-align: center;
 
   }
+
 
 
 }
