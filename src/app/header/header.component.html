@@ -5,10 +5,10 @@
         </div>
         <div class="navbar-default">
             <ul class="nav navbar-nav">
-                <li routerLinkActive = "active" *ngIf="isAuthenticated"><a routerLink="/recipes" (click)="showRecipes()">Recipes</a></li>
-                <li routerLinkActive = "active" *ngIf="isAuthenticated"><a routerLink="/shopping-list">Shopping list</a></li>
-                <li routerLinkActive = "active" *ngIf="!isAuthenticated"><a routerLink="/auth">LogIn/SignUp</a></li>
-                <li><a style="cursor:pointer" *ngIf="isAuthenticated" (click)="saveAllChanges()">Save All Changes</a></li>
+                <li id="recipesList"  routerLinkActive="active" *ngIf="isAuthenticated"><a routerLink="/recipes" (click)="showRecipes()">Recipes</a></li>
+                <li id="shoppingList" routerLinkActive = "active" *ngIf="isAuthenticated"><a routerLink="/shopping-list">Shopping list</a></li>
+                <li id="logsign" routerLinkActive = "active" *ngIf="!isAuthenticated"><a routerLink="/auth">LogIn/SignUp</a></li>
+                <li id="saveChanges"><a style="cursor:pointer" *ngIf="isAuthenticated" (click)="saveAllChanges()">Save All Changes</a></li>
 
 
 
@@ -20,7 +20,7 @@
                         <app-search-bar></app-search-bar>
                     </div>
                 </li>
-                <li *ngIf="isAuthenticated">
+                <li id="logout" *ngIf="isAuthenticated">
                     <a  style="cursor:pointer" (click)="onLogOut()" *ngIf="isAuthenticated">Logout</a>
                 </li>
                 <li  class="dropdown " appDropdownDeclaration *ngIf="isAuthenticated">
