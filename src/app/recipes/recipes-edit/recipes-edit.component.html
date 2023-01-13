@@ -84,7 +84,6 @@
                             id="amount"
                             class="form-control"
                             formControlName="amount">
-
                         </div>
                         <div class="col-xs-2">
                             <button
@@ -120,7 +119,7 @@
                   <div>
                     <input type="radio" name="recipeType" value="Fasten" formControlName="recipeType"><label for="" style="margin-left: 5px;">Fasten</label>
                   </div>
-                  <span style="color: red;" *ngIf="!recipeForm.get('recipeType').touched">Please select one of types!</span>
+                  <span style="color: red;" *ngIf="!recipeForm.get('recipeType').valid &&!recipeForm.get('recipeType').touched">Please select one of types!</span>
                 </div>
               </div>
             </div>
