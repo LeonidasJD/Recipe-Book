@@ -37,12 +37,18 @@ let recipeName = '';
 let recipeImagePath = '';
 let recipeDescription = '';
 let recipeIngredients= new FormArray([]);
+let howToPrepare = '';
+let recipeType = '';
 
 if(this.editMode){
  const recipe = this.recipeService.getRecipe(this.id);
   recipeName = recipe.name;
   recipeImagePath = recipe.imagePath;
   recipeDescription = recipe.description;
+  howToPrepare = recipe.howToPrepare;
+  recipeType = recipe.recipeType;
+
+
 
 for (let ingredient of recipe.ingredients){
     recipeIngredients.push(new FormGroup({
@@ -59,6 +65,8 @@ this.recipeForm = new FormGroup({
   'imagePath': new FormControl(recipeImagePath,Validators.required),
   'description': new FormControl(recipeDescription,Validators.required),
   'ingredients': recipeIngredients,
+  'recipeType':new FormControl(recipeType,Validators.required),
+  'howToPrepare':new FormControl(howToPrepare,Validators.required)
 
 
 });
