@@ -24,10 +24,10 @@ export class RecipesEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.route.params.subscribe(
-    (params:Params) => {this.id = +params['id']; 
+    (params:Params) => {this.id = +params['id'];
     this.editMode = params['id'] != null; //mozemo postaviti samo this.editMode = true;    i sve ce raditi identicno
     this.initForm();
-  } 
+  }
     )
 }
 
@@ -37,13 +37,19 @@ let recipeName = '';
 let recipeImagePath = '';
 let recipeDescription = '';
 let recipeIngredients= new FormArray([]);
+let howToPrepare = '';
+let recipeType = '';
 
 if(this.editMode){
  const recipe = this.recipeService.getRecipe(this.id);
   recipeName = recipe.name;
   recipeImagePath = recipe.imagePath;
   recipeDescription = recipe.description;
-  
+  howToPrepare = recipe.howToPrepare;
+  recipeType = recipe.recipeType;
+
+
+
 for (let ingredient of recipe.ingredients){
     recipeIngredients.push(new FormGroup({
       'name':new FormControl(ingredient.name,Validators.required),
@@ -51,7 +57,7 @@ for (let ingredient of recipe.ingredients){
       }))
     }
   }
-  
+
 
 
 this.recipeForm = new FormGroup({
@@ -59,8 +65,10 @@ this.recipeForm = new FormGroup({
   'imagePath': new FormControl(recipeImagePath,Validators.required),
   'description': new FormControl(recipeDescription,Validators.required),
   'ingredients': recipeIngredients,
-  
-  
+  'recipeType':new FormControl(recipeType,Validators.required),
+  'howToPrepare':new FormControl(howToPrepare,Validators.required)
+
+
 });
 }
 
@@ -73,13 +81,16 @@ const newRecipe = new Recipe(
 this.recipeForm.value['name'],
 this.recipeForm.value['description'],
 this.recipeForm.value['imagePath'],
-this.recipeForm.value['ingredients']);
+this.recipeForm.value['ingredients'],
+this.recipeForm.value['howToPrepare'],
+this.recipeForm.value['recipeType']);
+
 
 if(this.editMode){
 this.recipeService.updateRecipe(this.id,newRecipe);
 this.dataStorageService.onStoreRecipes().subscribe(responseRecipe =>{console.log(responseRecipe)})
 
-  
+
 }else{
 this.recipeService.addNewRecipe(newRecipe)
 console.log(this.recipeForm.value['ingredients'])
@@ -98,9 +109,9 @@ onAddFormArray(){            //metoda za dodvanje kontrole za upis sastojaka
 
 (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
   'name':new FormControl(null,Validators.required),
-  'amount':new FormControl(null,[Validators.required,Validators.pattern("^[1-9]+[0-9]*$")]) 
+  'amount':new FormControl(null,[Validators.required,Validators.pattern("^[1-9]+[0-9]*$")])
 }))
-}     
+}
 
 onDeleteFormArray(index:number){
 (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);

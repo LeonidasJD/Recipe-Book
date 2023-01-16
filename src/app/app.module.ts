@@ -40,6 +40,7 @@ import { ShoppingConfirmComponent } from './shopping-list/shopping-confirm/shopp
 
 
 
+
 const appRoutes: Routes = [
 {path: '', redirectTo: 'recipes', pathMatch:'full'},
 
@@ -67,6 +68,7 @@ children:[{path:'new', component:RecipesEditComponent},
     HeaderComponent,
     FooterComponent,
     SearchBarComponent,
+
 
 
 

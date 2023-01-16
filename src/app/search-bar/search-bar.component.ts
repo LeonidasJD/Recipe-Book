@@ -17,21 +17,18 @@ export class SearchBarComponent implements OnInit {
 @ViewChild('f') form:NgForm
 
 
+
 searchWord:string;
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {}
 
- 
-  }
-
-  onSearch(){
+    onSearch(){
     this.searchWord = this.form.value.search;
 
     console.log('this' + this.searchWord);
 
     this.recipeService.onSendWord.next(this.searchWord);
-    
+
   }
 
 }

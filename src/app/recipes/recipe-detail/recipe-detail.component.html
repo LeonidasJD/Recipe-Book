@@ -5,7 +5,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <h1>{{recipe.name}}</h1>
+        <h1>{{recipe.name}} ({{recipe.recipeType}})</h1>
     </div>
 </div>
 <div class="row">
@@ -36,4 +36,14 @@
             </li>
         </ul>
     </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h4 style="font-style:bold;">How to prepare:</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div style="background-color:lightgreen; border-radius: 3px; padding: 10px;">{{recipe.howToPrepare}}</div>
+  </div>
 </div>
